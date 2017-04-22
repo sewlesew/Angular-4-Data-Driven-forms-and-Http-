@@ -1,0 +1,44 @@
+
+
+
+
+<form [formGroup]="myform" (ngSubmit)="submit()">
+
+   <p><label>
+    Name:  <input type="text" [formControl]="myform.controls['name']">
+   </label>  <p> 
+     <div class="errors" *ngIf="!myform.controls['name'].valid">Required</div>
+
+  <p>   <label>
+    Email:  <input type="text" formControlName="email">
+   </label> </p> 
+   <div class="errors" *ngIf="!myform.controls['email'].valid">Required</div>
+
+   Post:
+   <p>
+      <label>
+       <textarea rows="10" cols="30" formControlName="post"></textarea>
+   </label> </p>
+   <div class="errors" *ngIf="!myform.controls['post'].valid">Miminimum length 10</div>
+   <button type="submit" [disabled]="!myform.valid">Submit</button> 
+    
+
+</form>
+<button (click)="getData()">Get Data</button>
+
+<span>User Data</span>
+<div *ngIf="userData"> 
+  <p >User Id: {{(userData | async)?.id}}</p>
+  <p>User Name: {{(userData | async)?.name}}</p>
+  <p>User Email: {{(userData | async)?.email}}</p>
+ </div>
+
+ <!--<div *ngIf="postData">
+  Posts::
+<ul *ngFor="let item of postData">
+      {{item.title}} 
+    <li>{{item.body}}</li>
+
+</ul>-->
+
+ <!--</div>-->
