@@ -26,19 +26,17 @@
 </form>
 <button (click)="getData()">Get Data</button>
 
-<span>User Data</span>
 <div *ngIf="userData"> 
   <p >User Id: {{(userData | async)?.id}}</p>
   <p>User Name: {{(userData | async)?.name}}</p>
   <p>User Email: {{(userData | async)?.email}}</p>
  </div>
 
- <!--<div *ngIf="postData">
+ <div *ngIf="postData">
   Posts::
-<ul *ngFor="let item of postData">
+<ul *ngFor="let item of postData | async">
       {{item.title}} 
     <li>{{item.body}}</li>
+</ul>
 
-</ul>-->
-
- <!--</div>-->
+ </div>

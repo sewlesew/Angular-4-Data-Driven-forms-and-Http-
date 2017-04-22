@@ -43,7 +43,12 @@ export class DataDrivenComponent {
       this.httpservice.getUserData().subscribe(function(res:Response){      
          resolve(res.json());
     });  });   
+    
+    this.postData=new Promise((resolve,reject)=>{
 
+      this.httpservice.getPostData().subscribe(function(res:Response){ 
+             resolve(res.json());
+    });  });   
     
   }
 
